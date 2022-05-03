@@ -1,0 +1,54 @@
+{%extends 'layout.html'%}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block top%}
+
+    <title>Display</title>
+    <style>
+        body {
+          /*  IMAGE  */
+          background-image: url('/static/lib.jpg');
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+    }
+        </style>
+    {%endblock%}
+</head>
+
+<body>
+{%block content%}
+    
+    {%for i in res%}
+    <div class="container">
+    <div class="col">
+        <div class="card" style="width: 15rem;">
+            <img src='/static/lib1.jpg' class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{i[1]}}</h5>
+                <p class="card-text">Autor: {{i[2]}}</p>
+                <p class="card-text">Year Published: {{i[3]}}</p>
+                <p class="card-text">Type: {{i[4]}}</p>
+                <p> <a href="/books/loans/{{i[0]}}" button type="button" class="btn btn-success">LOAN</button></a>
+                <a href="/helper/delbook/{{i[0]}}" button type="button" class="btn btn-danger">DELETE</button></a>
+                </p>
+            </div>
+        </div>
+     </div>
+     </div>
+      <br>       
+
+
+    {%endfor%}
+ 
+{%endblock%}
+</body>
+
+</html>
